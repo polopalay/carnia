@@ -1,0 +1,106 @@
+﻿prostitute_effect = {
+	save_scope_as = had_sex_root_character
+	$PROSTITUTE$ = { save_scope_as = prostitute }
+
+	custom_tooltip = prostitute_effect.tt
+
+	hidden_effect = {
+		add_opinion = {
+			target = scope:prostitute
+			modifier = have_sex_opinion
+		}
+		random = { chance = 0 modifier = { scope:prostitute = { is_female = no } add = 25 } add_character_flag = { flag = face_cum months = 6 } }
+		random = { chance = 0 modifier = { scope:prostitute = { is_female = no } add = 50 } add_character_flag = { flag = body_cum months = 6 } }
+		random = { chance = 0 modifier = { scope:prostitute = { is_female = no } add = 25 } add_character_flag = { flag = ass_cum months = 6 } }
+		random = { chance = 0 modifier = { scope:prostitute = { is_female = no } is_female = yes add = 50 } add_character_flag = { flag = pussy_cum months = 6 } }
+		add_character_modifier = { modifier = recently_had_sex years = 1 }
+		if = {
+			limit = {
+				is_female = yes
+				is_adult = yes
+				$PROSTITUTE$ = { is_female = no is_adult = yes }
+				possible_pregnancy_after_sex_with_character_trigger = { CHARACTER = scope:prostitute }
+			}
+			add_to_variable_list = { name = potential_father_variable_list target = $PROSTITUTE$ }
+			if = {
+				limit = { scope:use_contraception = yes }
+				random = { chance = $PREGNANCY_CHANCE$ make_pregnant = { father = $PROSTITUTE$ } }
+			}
+			else = {
+				random = { chance = 1 make_pregnant = { father = $PROSTITUTE$ } }
+			}
+		}
+		else_if = {
+			limit = {
+				is_female = no
+				is_adult = yes
+				$PROSTITUTE$ = { is_female = yes is_adult = yes }
+				possible_pregnancy_after_sex_with_character_trigger = { CHARACTER = scope:prostitute }
+			}
+			$PROSTITUTE$ = {
+				add_to_variable_list = { name = potential_father_variable_list target = scope:had_sex_root_character }
+				if = {
+					limit = { scope:use_contraception = yes }
+					random = { chance = 1 make_pregnant = { father = scope:had_sex_root_character } }
+				}
+				else = {
+					random = { chance = $PREGNANCY_CHANCE$ make_pregnant = { father = scope:had_sex_root_character } }
+				}
+			}
+		}
+		$PROSTITUTE$ = {
+			random = { chance = 0 modifier = { scope:had_sex_root_character = { is_female = no } add = 25 } add_character_flag = { flag = face_cum months = 6 } }
+			random = { chance = 0 modifier = { scope:had_sex_root_character = { is_female = no } add = 50 } add_character_flag = { flag = body_cum months = 6 } }
+			random = { chance = 0 modifier = { scope:had_sex_root_character = { is_female = no } add = 25 } add_character_flag = { flag = ass_cum months = 6 } }
+			random = { chance = 0 modifier = { scope:had_sex_root_character = { is_female = no } is_female = yes add = 50 } add_character_flag = { flag = pussy_cum months = 6 } }
+			add_character_modifier = { modifier = recently_had_sex years = 1 }
+			add_trait_xp = { trait = lifestyle_prostitute value = 10 }
+			if = {
+				limit = { OR = { has_trait_xp = { trait = lifestyle_prostitute value < 50 } NOT = { has_trait = lifestyle_prostitute } } }
+				add_character_modifier = carn_working_as_prostitute_1_modifier
+				remove_character_modifier = carn_working_as_prostitute_2_modifier
+				remove_character_modifier = carn_working_as_prostitute_3_modifier
+			}
+			else_if = {
+				limit = { has_trait_xp = { trait = lifestyle_prostitute value >=50 } has_trait_xp = { trait = lifestyle_prostitute value < 100 } }
+				add_character_modifier = carn_working_as_prostitute_2_modifier
+				remove_character_modifier = carn_working_as_prostitute_1_modifier
+				remove_character_modifier = carn_working_as_prostitute_3_modifier
+			}
+			else_if = {
+				limit = { has_trait_xp = { trait = lifestyle_prostitute value >= 100 } }
+				add_character_modifier = carn_working_as_prostitute_3_modifier
+				remove_character_modifier = carn_working_as_prostitute_1_modifier
+				remove_character_modifier = carn_working_as_prostitute_2_modifier
+			}
+			random = {
+				chance = 10
+				modifier = { any_secret = { is_known_by = scope:had_sex_root_character secret_type = secret_prostitute } add = -100 }
+				modifier = { any_secret = { secret_type = secret_prostitute count = 0 } add = -100 }
+				random_secret = {
+					limit = { secret_type = secret_prostitute }
+					reveal_to = scope:had_sex_root_character
+				}
+			}
+			random = {
+				chance = 1
+				if = {
+					limit = { have_devil_nicknames_trigger = no is_female = yes }
+					random_list = {
+						1 = { give_nickname = nickname_the_bitch }
+						1 = { give_nickname = nickname_the_slut }
+						1 = { give_nickname = nickname_the_whore }
+						1 = { give_nickname = nickname_the_wench }
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = { scope:use_contraception = no }
+			risk_of_std_from_effect = { PARTNER = $PROSTITUTE$ }
+			$PROSTITUTE$ = { risk_of_std_from_effect = { PARTNER = scope:had_sex_root_character } }
+		}
+	}
+}
+

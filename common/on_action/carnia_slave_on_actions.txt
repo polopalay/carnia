@@ -1,0 +1,37 @@
+on_death_relation_slave = {
+	effect = {
+		remove_relation_slave = scope:target
+		primary_heir = {
+			save_scope_as = new_owner
+			set_relation_slave = scope:target
+		}
+		if = {
+			limit = { NOT = { exists = scope:new_owner } }
+			scope:target.liege = {
+				save_scope_as = new_owner
+				set_relation_slave = scope:target
+			}
+		}
+		scope:target = {
+			set_relation_slave_owner = new_owner
+		}
+	}
+}
+
+
+on_birth_child = {
+	events = {
+		carn_slave.0003
+	}
+}
+
+on_title_gain = {
+	events = {
+		carn_slave.0002
+	}
+}
+
+on_join_court = {
+	trigger = { is_ruler = no has_trait = slave has_relation_slave_owner = scope:old_employer }
+	effect = { scope:old_employer = { add_courtier = root } }
+}

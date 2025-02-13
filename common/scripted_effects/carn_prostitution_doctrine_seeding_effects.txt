@@ -1,0 +1,17 @@
+﻿# carn_seed_prostitution_doctrines_effect
+# if game rule is off, removes prostitution doctrines from all faiths
+# otherwise, seeds a faith's religious doctrines for prostitution
+carn_seed_prostitution_doctrines_effect = {
+	if = {
+		limit = {
+			NOR = {
+				has_doctrine = carn_doctrine_prostitution_crime
+				has_doctrine = carn_doctrine_prostitution_shunned
+				has_doctrine = carn_doctrine_prostitution_accepted
+				has_doctrine = carn_doctrine_prostitution_virtuous
+			}
+		}
+		add_doctrine = carn_doctrine_prostitution_crime
+	}
+}
+

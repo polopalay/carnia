@@ -1,0 +1,147 @@
+﻿carnia_slave_training_interaction = {
+	category = interaction_category_prison
+	desc = carnia_slave_training_interaction.desc
+	common_interaction = yes
+	cooldown = { months = 6 }
+	cooldown_against_recipient = { months = 12 }
+	is_shown = {
+		scope:actor = {
+			is_adult = yes
+		}
+		scope:recipient = {
+			is_adult = yes
+			has_trait = slave
+			is_courtier_of = scope:actor
+		}
+	}
+	send_option = {
+		flag = have_sex	
+		localization = have_sex
+		is_shown = {
+			scope:actor = {
+				is_adult = yes
+				is_attracted_to_gender_of = scope:recipient
+				NOT = { trait_is_shunned_or_criminal_in_faith_or_liege_trigger = { TRAIT = adulterer } }
+			}
+			scope:recipient = {
+				is_adult = yes
+			}
+		}
+	}
+	send_option = {
+		flag = extort_gold
+		localization = extort_gold
+		is_shown = {
+			scope:recipient.gold > 0
+		}
+	}
+	send_option = {
+		flag = forced_labor
+		localization = forced_labor
+		is_shown = {
+			scope:recipient = {
+				NOT = { has_character_modifier = forced_labor }
+			}
+		}
+	}
+	send_option = {
+		flag = demand_conversion
+		localization = "RELEASE_DEMAND_CONVERSION"
+		is_shown = {
+			NOT = { scope:actor.faith = scope:recipient.faith }
+		}
+		is_valid = {
+			# Cannot ask Religious Heads to convert
+			custom_description = {
+				text = cannot_demand_religious_head_conversion
+				NOT = {
+					AND = {
+						exists = scope:recipient.faith.religious_head
+						scope:recipient.faith.religious_head = scope:recipient
+					}
+				}
+			}
+			# Cannot ask Holy Order Master to convert
+			custom_description = {
+				text = cannot_demand_holy_order_master_conversion
+				NAND = {
+					exists = scope:recipient.faith
+					scope:recipient.faith = {
+						any_faith_holy_order = { leader = scope:recipient }
+					}
+				}
+			}
+		}
+	}
+	send_options_exclusive = no
+	on_accept = {
+		scope:recipient = {
+			if = {
+				limit = { scope:extort_gold = yes }
+				pay_short_term_gold = { target = scope:actor.gold = gold }
+				add_opinion = { target = scope:actor modifier = extortion_opinion }
+			}
+			if = {
+				limit = { scope:have_sex = yes }
+				had_sex_with_effect = { CHARACTER = scope:actor PREGNANCY_CHANCE = pregnancy_chance }
+			}
+			if = {
+				limit = { scope:forced_labor = yes }
+				add_character_modifier = { modifier = forced_labor years = 2 }
+			}
+			if = {
+				limit = { scope:demand_conversion = yes }
+				set_character_faith_with_conversion = scope:actor.faith
+			}
+			random_list = {
+				1 = 0
+				0 = {
+					modifier = { any_secret = { NOT = { is_known_by = scope:actor } } add = 10 }
+					random_secret = { limit = { NOT = { is_known_by = scope:actor } } reveal_to = scope:actor }
+				}
+				0 = {
+					modifier = { any_scheme = { scheme_type = murder scheme_target_character = scope:actor } }
+					every_scheme = {
+						limit = { scheme_type = murder scheme_target_character = scope:owner }
+						end_scheme = yes
+					}
+				}
+				0 = {
+					modifier = { has_trait_rank = { trait = wounded rank < 3 } add = 1 }
+					change_trait_rank = { trait = wounded rank = 1 }
+				}
+				0 = {
+					modifier = { NOT = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } add = 1 }
+					add_character_modifier = { modifier = diplomacy_majesty_4090_no_raiment_modifier years = 1 }
+				}
+				0 = {
+					modifier = { is_pregnant = no is_female = yes scope:actor = { any_courtier = { is_adult = yes is_female = no } add = 1 }
+					scope:actor = {
+						random_courtier = {
+							limit = { is_adult = yes is_female = no }
+							had_sex_with_effect = { CHARACTER = scope:recipient PREGNANCY_CHANCE = pregnancy_chance }
+						}
+					}
+				}
+			}
+		}
+	}
+	auto_accept = yes
+	ai_targets = { ai_recipients = courtiers }
+	ai_potential = { always = yes }
+	ai_frequency = 6
+	ai_will_do = {
+		base = 0
+		ai_value_modifier = {
+			ai_vengefulness = 1
+			ai_greed = 0.5
+			ai_compassion = -1
+			ai_honor = -0.5
+			ai_rationality = -0.1
+		}
+		modifier = { NOT = { scope:recipient.faith = scope:actor.faith } add = 25 }
+		modifier = { scope:recipient = { has_relation_friend = scope:actor } add = -50 }
+		modifier = { scope:recipient = { has_relation_lover = scope:actor } add = -50 }
+		modifier = { scope:recipient = { has_relation_soulmate = scope:actor } add = -100 }
+	}
+}

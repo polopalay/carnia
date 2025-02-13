@@ -1,0 +1,23 @@
+﻿l_simp_chinese:
+ secret_prostitute: "秘密妓女"
+ secret_prostitute_desc: "是妓女"
+ secret_prostitute_tooltip_desc: "这个角色是妓女"
+ secret_prostitute_type_desc: "$secret_prostitute_tooltip_desc$"
+
+ action_can_offer_prostitute_combined_group_name: "提供妓女"
+ action_can_offer_prostitute_combined_group_label: "可以提供妓女"
+ action_can_offer_prostitute_combined_group_description: "你可以向角色提供妓女"
+ action_can_offer_prostitute_combined_label: "为 [recipient.GetShortUIName|E] 提供妓女"
+ action_can_offer_prostitute_label: "为 [recipient.GetShortUIName|E] 提供妓女"
+ action_can_offer_prostitute: "提供妓女"
+ action_can_offer_prostitute_desc: "提供 [recipient.GetShortUIName] 性服务"
+ action_can_offer_prostitute_click: ""
+
+ set_relation_slave_g: "[TARGET_CHARACTER.GetName]成为奴隶"
+ set_relation_slave_f: "[TARGET_CHARACTER.GetName]成为我的奴隶"
+ remove_relation_slave_g: "[TARGET_CHARACTER.GetName]不再是奴隶"
+ remove_relation_slave_f: "[TARGET_CHARACTER.GetName]不再是我的奴隶"
+ set_relation_slave_owner_g: "[TARGET_CHARACTER.GetName]现在成为所有者"
+ set_relation_slave_owner_f: "[TARGET_CHARACTER.GetName]现在成为我的主人"
+ remove_relation_slave_owner_g: "[TARGET_CHARACTER.GetName]不再拥有"
+ remove_relation_slave_owner_f: "[TARGET_CHARACTER.GetName]不再是我的主人"

@@ -1,0 +1,18 @@
+﻿carn_is_working_as_prostitute_trigger = {
+	is_adult = yes
+	is_in_army = no
+	OR = {
+		has_character_modifier = carn_working_as_prostitute_1_modifier
+		has_character_modifier = carn_working_as_prostitute_2_modifier
+		has_character_modifier = carn_working_as_prostitute_3_modifier
+	}
+	NOT = { has_character_modifier = recently_had_sex }
+	is_pregnant = no
+}
+
+has_valid_prostitute_trigger = {
+	OR = {
+		carn_is_working_as_prostitute_trigger = yes
+		any_courtier = { carn_is_working_as_prostitute_trigger = yes }
+	}
+}

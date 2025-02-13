@@ -1,0 +1,23 @@
+﻿l_english:
+ secret_prostitute: "Secret Prostitute"
+ secret_prostitute_desc: "Is a prostitute"
+ secret_prostitute_tooltip_desc: "This character is a prostitute"
+ secret_prostitute_type_desc: "$secret_prostitute_tooltip_desc$"
+
+ action_can_offer_prostitute_combined_group_name: "Offer Prostitute"
+ action_can_offer_prostitute_combined_group_label: "Can offer Prostitute"
+ action_can_offer_prostitute_combined_group_description: "You can offer a prostitute to the characters"
+ action_can_offer_prostitute_combined_label: "Offer Prostitute for [recipient.GetShortUIName|E]"
+ action_can_offer_prostitute_label: "Offer Prostitute for [recipient.GetShortUIName|E]"
+ action_can_offer_prostitute: "Offer Prostitute"
+ action_can_offer_prostitute_desc: "Offer [recipient.GetShortUIName] sexual services"
+ action_can_offer_prostitute_click: ""
+
+ set_relation_slave_g: "[TARGET_CHARACTER.GetName] become slave"
+ set_relation_slave_f: "[TARGET_CHARACTER.GetName] become my slave"
+ remove_relation_slave_g: "[TARGET_CHARACTER.GetName] no longer slave"
+ remove_relation_slave_f: "[TARGET_CHARACTER.GetName] no longer my slave"
+ set_relation_slave_owner_g: "[TARGET_CHARACTER.GetName] now become owner"
+ set_relation_slave_owner_f: "[TARGET_CHARACTER.GetName] now become my owner"
+ remove_relation_slave_owner_g: "[TARGET_CHARACTER.GetName] no longer owns"
+ remove_relation_slave_owner_f: "[TARGET_CHARACTER.GetName] no longer my owner"
