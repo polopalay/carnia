@@ -10,7 +10,17 @@ carn_seed_slavery_doctrines_effect = {
 				has_doctrine = carn_doctrine_same_slavery_accepted
 			}
 		}
-		add_doctrine = carn_doctrine_same_slavery_crime
+		if = {
+			limit = { religion = { is_in_family = rf_pagan } }
+			add_doctrine = carn_doctrine_same_slavery_accepted
+		}
+		else_if = {
+			limit = { religion = religion:islam_religion }
+			add_doctrine = carn_doctrine_same_slavery_shunned
+		}
+		else = {
+			add_doctrine = carn_doctrine_same_slavery_crime
+		}
 	}
 	if = {
 		limit = {
@@ -20,7 +30,13 @@ carn_seed_slavery_doctrines_effect = {
 				has_doctrine = carn_doctrine_other_slavery_accepted
 			}
 		}
-		add_doctrine = carn_doctrine_other_slavery_accepted
+		if = {
+			limit = { religion = { is_in_family = rf_pagan } }
+			add_doctrine = carn_doctrine_other_slavery_accepted
+		}
+		else = {
+			add_doctrine = carn_doctrine_other_slavery_shunned
+		}
 	}
 }
 

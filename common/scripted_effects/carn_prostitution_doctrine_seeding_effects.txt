@@ -11,7 +11,17 @@ carn_seed_prostitution_doctrines_effect = {
 				has_doctrine = carn_doctrine_prostitution_virtuous
 			}
 		}
-		add_doctrine = carn_doctrine_prostitution_crime
+		if = {
+			limit = { OR = { has_doctrine_parameter = adultery_female_crime has_doctrine_parameter = adultery_male_crime } }
+			add_doctrine = carn_doctrine_prostitution_crime
+		}
+		else_if = {
+			limit = { OR = { has_doctrine_parameter = adultery_male_shunned has_doctrine_parameter = adultery_female_shunned } }
+			add_doctrine = carn_doctrine_prostitution_shunned
+		}
+		else = {
+			add_doctrine = carn_doctrine_prostitution_accepted
+		}
 	}
 }
 
