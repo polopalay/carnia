@@ -1,4 +1,26 @@
-number_slaves_normal_need = 5
+number_slaves_normal_need = {
+	value = 1
+	if = {
+		limit = { primary_title.tier = tier_county is_landed = yes }
+		add = 1
+	}
+	if = {
+		limit = { primary_title.tier = tier_duchy is_landed = yes }
+		add = 1
+	}
+	if = {
+		limit = { primary_title.tier = tier_kingdom is_landed = yes }
+		add = 1
+	}
+	if = {
+		limit = { primary_title.tier = tier_empire is_landed = yes }
+		add = 1
+	}
+		if = {
+		limit = { has_trait_with_flag = slave_owner }
+		add = 15
+	}
+}
 
 carn_slave_price_value = {
 	value = 20

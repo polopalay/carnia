@@ -10,12 +10,9 @@
 			scope:actor = {
 				is_ruler = yes
 				OR = {
-					has_trait = lustful
-					has_trait = deviant
-					any_secret = { secret_type = secret_deviant }
+					has_trait = lifestyle_prostitute
 					any_secret = { secret_type = secret_prostitute }
 					NOT = { faith = { has_doctrine_parameter = carn_prostitution_illegal } }
-					has_relation_slave  = scope:recipient
 				}
 			}
 		}
@@ -52,7 +49,7 @@
 					OR = {
 						is_courtier_of = scope:actor
 						is_imprisoned_by = scope:actor
-					}
+					
 					scope:actor = {
 						any_courtier = {
 							OR = {
