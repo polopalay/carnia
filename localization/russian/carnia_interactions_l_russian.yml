@@ -38,16 +38,16 @@
   extort_gold: "Вымогать золото"
   forced_labor: "Принудительный труд"
 
-  prostitute_interaction: "Проституция"
-  prostitute_interaction.desc: "Запросите [recipient.GetShortUIName] предоставить сексуальные услуги."
+  carnia_prostitute_interaction: "Проституция"
+  carnia_prostitute_interaction.desc: "Запросите [recipient.GetShortUIName] предоставить сексуальные услуги."
   use_contraception: "Использовать контрацепцию"
   cant_have_sex_without_contraception: "Невозможно иметь секс без использования контрацепции: $VALUE|=+0$"
   can_have_sex_without_contraception: "Секс требует результатов: $VALUE|=+0$"
   NOT_IS_IMMORTAL_TRIGGER: "Не является бессмертным"
 
-  offer_prostitute_interaction: "Предложить проституцию"
-  offer_prostitute_interaction.desc: "Предложите [recipient.GetShortUIName] сексуальные услуги."
-  recipient_secondary_offer_prostitute_interaction: "Выберите одно"
+  carnia_offer_carnia_prostitute_interaction: "Предложить проституцию"
+  carnia_offer_carnia_prostitute_interaction.desc: "Предложите [recipient.GetShortUIName] сексуальные услуги."
+  recipient_secondary_carnia_offer_carnia_prostitute_interaction: "Выберите одно"
 
   carn_force_start_prostitution_interaction: "Начать проституцию"
   carn_force_start_prostitution_interaction.desc: "Заставьте [recipient.GetShortUINameNoTooltip] зарабатывать [gold|E] для вас как проститутка."

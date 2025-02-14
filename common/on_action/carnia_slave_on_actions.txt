@@ -35,3 +35,22 @@ on_join_court = {
 	trigger = { is_ruler = no has_trait = slave has_relation_slave_owner = scope:old_employer }
 	effect = { scope:old_employer = { add_courtier = root } }
 }
+
+random_yearly_everyone_pulse = {
+	trigger = {
+		is_ruler = yes
+		any_relation = {
+			type = slave
+			NOT = { is_courtier_of = root }
+		}
+	}
+	effect = {
+		every_relation = {
+			type = slave
+			limit = { NOT = { is_courtier_of = root } }
+			root = {
+				add_courtier = prev
+			}
+		}
+	}
+}

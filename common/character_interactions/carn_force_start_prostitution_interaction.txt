@@ -10,7 +10,6 @@
 			scope:actor = {
 				is_ruler = yes
 				OR = {
-					has_trait = rakish
 					has_trait = lustful
 					has_trait = deviant
 					any_secret = { secret_type = secret_deviant }

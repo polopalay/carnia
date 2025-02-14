@@ -1,6 +1,6 @@
-﻿offer_prostitute_interaction = {
-	icon = prostitute_interaction
-	desc = offer_prostitute_interaction.desc
+﻿carnia_offer_carnia_prostitute_interaction = {
+	icon = carnia_prostitute_interaction
+	desc = carnia_offer_carnia_prostitute_interaction.desc
 	category = interaction_category_diplomacy
 	use_diplomatic_range = yes
 	common_interaction = yes

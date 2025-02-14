@@ -57,7 +57,7 @@ action_can_offer_prostitute = {
 	}
 	effect = {
 		open_interaction_window = {
-			interaction = offer_prostitute_interaction
+			interaction = carnia_offer_carnia_prostitute_interaction
 			actor = scope:actor
 			recipient = scope:recipient
 		}

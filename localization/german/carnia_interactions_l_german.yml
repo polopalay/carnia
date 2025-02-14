@@ -29,16 +29,16 @@
   extort_gold: "Gold erpressen"
   forced_labor: "Zwangsarbeit"
 
-  prostitute_interaction: "Prostitution"
-  prostitute_interaction.desc: "[recipient.GetShortUIName] um sexuelle Dienstleistungen bitten"
+  carnia_prostitute_interaction: "Prostitution"
+  carnia_prostitute_interaction.desc: "[recipient.GetShortUIName] um sexuelle Dienstleistungen bitten"
   use_contraception: "Verhütung benutzen"
   cant_have_sex_without_contraception: "Kein Sex ohne Verhütung: $VALUE|=+0$"
   can_have_sex_without_contraception: "Sex braucht Ergebnisse: $VALUE|=+0$"
   NOT_IS_IMMORTAL_TRIGGER: "Ist nicht unsterblich"
 
-  offer_prostitute_interaction: "Prostitution anbieten"
-  offer_prostitute_interaction.desc: "[recipient.GetShortUIName] sexuelle Dienstleistungen anbieten"
-  recipient_secondary_offer_prostitute_interaction: "Wählen Sie eine"
+  carnia_offer_carnia_prostitute_interaction: "Prostitution anbieten"
+  carnia_offer_carnia_prostitute_interaction.desc: "[recipient.GetShortUIName] sexuelle Dienstleistungen anbieten"
+  recipient_secondary_carnia_offer_carnia_prostitute_interaction: "Wählen Sie eine"
 
   carn_force_start_prostitution_interaction: "Prostitution beginnen"
   carn_force_start_prostitution_interaction.desc: "[recipient.GetShortUINameNoTooltip] zwingen, [gold|E] für Sie als Prostituierte zu verdienen"

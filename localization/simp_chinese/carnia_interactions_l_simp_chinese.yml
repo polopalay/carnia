@@ -29,15 +29,15 @@
  extort_gold: "敲诈金币"
  forced_labor: "强迫劳动"
 
- prostitute_interaction: "买春"
- prostitute_interaction.desc: "请求[recipient.GetShortUIName]提供性服务"
+ carnia_prostitute_interaction: "买春"
+ carnia_prostitute_interaction.desc: "请求[recipient.GetShortUIName]提供性服务"
  use_contraception: "实施避孕"
  cant_have_sex_without_contraception: "没有避孕可不能发生性关系：$VALUE|=+0$"
  can_have_sex_without_contraception: "性需求结果：$VALUE|=+0$"
 
- offer_prostitute_interaction: "卖淫"
- offer_prostitute_interaction.desc: "为[recipient.GetShortUIName]提供性服务"
- recipient_secondary_offer_prostitute_interaction: "选一个"
+ carnia_offer_carnia_prostitute_interaction: "卖淫"
+ carnia_offer_carnia_prostitute_interaction.desc: "为[recipient.GetShortUIName]提供性服务"
+ recipient_secondary_carnia_offer_carnia_prostitute_interaction: "选一个"
 
  carn_force_start_prostitution_interaction: "开始卖淫"
  carn_force_start_prostitution_interaction.desc: "强迫[recipient.GetShortUINameNoTooltip]做妓女来为你赚取[gold|E]"

@@ -1,5 +1,5 @@
-﻿prostitute_interaction = {
-	desc = prostitute_interaction.desc
+﻿carnia_prostitute_interaction = {
+	desc = carnia_prostitute_interaction.desc
 	category = interaction_category_diplomacy
 	use_diplomatic_range = yes
 	common_interaction = yes
