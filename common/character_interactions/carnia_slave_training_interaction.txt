@@ -115,9 +115,10 @@
 					add_character_modifier = { modifier = diplomacy_majesty_4090_no_raiment_modifier years = 1 }
 				}
 				0 = {
-					modifier = { is_pregnant = no is_female = yes scope:actor = { any_courtier = { is_adult = yes is_female = no } add = 1 }
+					modifier = { is_pregnant = no is_female = yes scope:actor = { any_relation = { type = slave is_adult = yes is_female = no } } add = 1 }
 					scope:actor = {
-						random_courtier = {
+						random_relation = {
+							type = slave
 							limit = { is_adult = yes is_female = no }
 							had_sex_with_effect = { CHARACTER = scope:recipient PREGNANCY_CHANCE = pregnancy_chance }
 						}
@@ -139,9 +140,9 @@
 			ai_honor = -0.5
 			ai_rationality = -0.1
 		}
-		modifier = { NOT = { scope:recipient.faith = scope:actor.faith } add = 25 }
-		modifier = { scope:recipient = { has_relation_friend = scope:actor } add = -50 }
-		modifier = { scope:recipient = { has_relation_lover = scope:actor } add = -50 }
-		modifier = { scope:recipient = { has_relation_soulmate = scope:actor } add = -100 }
+		modifier = { add = 25 NOT = { scope:recipient.faith = scope:actor.faith } }
+		modifier = { add = -50 scope:recipient = { has_relation_friend = scope:actor } }
+		modifier = { add = -50 scope:recipient = { has_relation_lover = scope:actor } }
+		modifier = { add = -100 scope:recipient = { has_relation_soulmate = scope:actor } }
 	}
 }

@@ -54,3 +54,24 @@ random_yearly_everyone_pulse = {
 		}
 	}
 }
+
+five_year_everyone_pulse = {
+	trigger = {
+		is_ruler = no
+		has_trait = slave
+		any_relation = {
+			is_ruler = no
+			type = slave_owner
+			count = 0
+		}
+	}
+	effect = {
+		random_ruler = {
+			carn_enslave_effect = { SLAVE = root OWNER = this DRAMA = no }
+			weight = {
+				base = 1
+				modifier = { root.liege = this add = 10000 }
+			}
+		}
+	}
+}

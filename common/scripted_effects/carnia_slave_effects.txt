@@ -115,11 +115,12 @@ carn_buy_slave_effect = {
 		value = $SLAVE_PRICE$
 	}
 	scope:slave = {
-		remove_relation_slave_owner = scope:seller
+		every_relation = {
+			type = slave_owner
+			remove_relation_slave = scope:slave
+			scope:slave = { remove_relation_slave_owner = prev }
+		}
 		set_relation_slave_owner = { target = scope:buyer }
-	}
-	scope:seller = {
-		remove_relation_slave = scope:slave
 	}
 	scope:buyer = {
 		set_relation_slave = { target = scope:slave }
@@ -166,8 +167,7 @@ carn_free_slave_effect = {
 		every_relation = {
 			type = slave_owner
 			remove_relation_slave = scope:slave
-			save_scope_as = slave_owner
-			scope:slave = { remove_relation_slave_owner = scope:slave_owner }
+			scope:slave = { remove_relation_slave_owner = prev }
 		}
 		if = {
 			limit = {

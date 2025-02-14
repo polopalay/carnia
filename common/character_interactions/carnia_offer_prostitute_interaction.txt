@@ -190,8 +190,8 @@
 		modifier = { add = -10 scope:secondary_recipient = { age >= 40 is_immortal = no } }
 		modifier = { add = 10 scope:secondary_recipient = { should_be_naked_trigger = yes } }
 		modifier = {
-			desc = cant_have_sex_without_contraception
 			add = -10
+			desc = cant_have_sex_without_contraception
 			scope:recipient = {
 				NOT = {
 					has_trait = deviant

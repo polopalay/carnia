@@ -10,13 +10,7 @@
 				is_courtier_of = scope:actor
 				is_imprisoned_by = scope:actor
 			}
-			OR = {
-				NOT = { has_trait = slave }
-				AND = {
-					has_trait = slave
-					any_relation = { type = slave_owner count = 0 }
-				}
-			}
+			NOT = { has_trait = slave }
 		}
 	}
 	is_valid_showing_failures_only = {
@@ -66,10 +60,10 @@
 		modifier = { add = 20 scope:recipient = { has_trait = humble } }
 		modifier = { add = 30 scope:recipient = { is_ruler = no is_lowborn = yes } }
 		modifier = { add = 50 scope:recipient = { has_trait = contrite } }
-		modifier = { desc = INTIMIDATED_REASON add = 25 scope:recipient = { has_dread_level_towards = { target = scope:actor level = 1 } } }
-		modifier = { desc = COWED_REASON add = 50 scope:recipient = { has_dread_level_towards = { target = scope:actor level = 2 } } }
+		modifier = { add = 25 desc = INTIMIDATED_REASON scope:recipient = { has_dread_level_towards = { target = scope:actor level = 1 } } }
+		modifier = { add = 50 desc = COWED_REASON scope:recipient = { has_dread_level_towards = { target = scope:actor level = 2 } } }
 		modifier = { add = -25 desc = carn_enslave_recipient_is_noble scope:recipient = { is_lowborn = no is_ruler = yes } }
-		modifier = { desc = carn_enslave_you_have_no_reason add = -50 scope:actor = { NOT = { has_execute_reason = scope:recipient } } }
+		modifier = { add = -50 desc = carn_enslave_you_have_no_reason scope:actor = { NOT = { has_execute_reason = scope:recipient } } }
 		modifier = { add = -100 scope:recipient = { has_trait = arrogant } }
 		modifier = { add = -100 scope:recipient = { has_trait = ambitious } }
 	}
@@ -114,17 +108,16 @@
 			ai_honor = -0.1
 			ai_rationality = -0.1
 		}
-		modifier = { scope:recipient = { is_lowborn = yes} add = 50 }
-		modifier = { scope:recipient = { has_trait = peasant_leader } add = 100 }
-		modifier = { scope:recipient = { has_trait = populist_leader } add = 100 }
-		modifier = { scope:recipient = { has_trait = slave } add = 1000 }
-		modifier = { ai_compassion >= low_positive_ai_value scope:recipient = { is_adult = no } add = -20 }
-		modifier = { scope:actor.dynasty = scope:recipient.dynasty add = -20 }
-		modifier = { scope:recipient = { is_close_or_extended_family_of = scope:actor } add = -20 }
-		modifier = { scope:recipient = { is_spouse_of = scope:actor } add = -50 }
-		modifier = { scope:recipient = { is_child_of = scope:actor } add = -50 }
-		modifier = { scope:recipient = { is_heir_of = scope:actor } add = -50 }
-		modifier = { scope:recipient = { is_ruler = yes} add = -50 }
+		modifier = { add = 50 scope:recipient = { is_lowborn = yes } }
+		modifier = { add = 100 scope:recipient = { has_trait = peasant_leader } }
+		modifier = { add = 100 scope:recipient = { has_trait = populist_leader } }
+		modifier = { add = -20 ai_compassion >= low_positive_ai_value scope:recipient = { is_adult = no } }
+		modifier = { add = -20 scope:actor.dynasty = scope:recipient.dynasty }
+		modifier = { add = -20 scope:recipient = { is_close_or_extended_family_of = scope:actor } }
+		modifier = { add = -50 scope:recipient = { is_spouse_of = scope:actor } }
+		modifier = { add = -50 scope:recipient = { is_child_of = scope:actor } }
+		modifier = { add = -50 scope:recipient = { is_heir_of = scope:actor } }
+		modifier = { add = -50 scope:recipient = { is_ruler = yes} }
 		modifier = {
 			add = 20
 			scope:actor = {
