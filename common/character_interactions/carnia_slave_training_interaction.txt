@@ -94,28 +94,28 @@
 				set_character_faith_with_conversion = scope:actor.faith
 			}
 			random_list = {
-				2 = 0
+				8 = 0
 				0 = {
-					modifier = { any_secret = { NOT = { is_known_by = scope:actor } } add = 10 }
+					modifier = { add = 8 any_secret = { NOT = { is_known_by = scope:actor } } }
 					random_secret = { limit = { NOT = { is_known_by = scope:actor } } reveal_to = scope:actor }
 				}
 				0 = {
-					modifier = { any_scheme = { scheme_type = murder scheme_target_character = scope:actor } }
+					modifier = { add = 10 any_scheme = { scheme_type = murder scheme_target_character = scope:actor } }
 					every_scheme = {
 						limit = { scheme_type = murder scheme_target_character = scope:owner }
 						end_scheme = yes
 					}
 				}
 				0 = {
-					modifier = { has_trait_rank = { trait = wounded rank < 3 } add = 1 }
+					modifier = { add = 1 has_trait_rank = { trait = wounded rank < 3 } }
 					change_trait_rank = { trait = wounded rank = 1 }
 				}
 				0 = {
-					modifier = { NOT = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } add = 2 }
+					modifier = { add = 5 NOT = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } }
 					add_character_modifier = { modifier = diplomacy_majesty_4090_no_raiment_modifier years = 2 }
 				}
 				0 = {
-					modifier = { is_pregnant = no is_female = yes scope:actor = { any_relation = { type = slave is_adult = yes is_female = no } } add = 5 }
+					modifier = { add = 5 is_pregnant = no is_female = yes scope:actor = { any_relation = { type = slave is_adult = yes is_female = no } } }
 					scope:actor = {
 						random_relation = {
 							type = slave
