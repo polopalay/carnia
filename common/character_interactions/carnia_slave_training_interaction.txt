@@ -94,7 +94,7 @@
 				set_character_faith_with_conversion = scope:actor.faith
 			}
 			random_list = {
-				1 = 0
+				2 = 0
 				0 = {
 					modifier = { any_secret = { NOT = { is_known_by = scope:actor } } add = 10 }
 					random_secret = { limit = { NOT = { is_known_by = scope:actor } } reveal_to = scope:actor }
@@ -111,11 +111,11 @@
 					change_trait_rank = { trait = wounded rank = 1 }
 				}
 				0 = {
-					modifier = { NOT = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } add = 1 }
-					add_character_modifier = { modifier = diplomacy_majesty_4090_no_raiment_modifier years = 1 }
+					modifier = { NOT = { has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier } add = 2 }
+					add_character_modifier = { modifier = diplomacy_majesty_4090_no_raiment_modifier years = 2 }
 				}
 				0 = {
-					modifier = { is_pregnant = no is_female = yes scope:actor = { any_relation = { type = slave is_adult = yes is_female = no } } add = 1 }
+					modifier = { is_pregnant = no is_female = yes scope:actor = { any_relation = { type = slave is_adult = yes is_female = no } } add = 5 }
 					scope:actor = {
 						random_relation = {
 							type = slave

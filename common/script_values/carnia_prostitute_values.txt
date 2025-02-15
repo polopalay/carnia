@@ -1,6 +1,6 @@
 carn_prostitution_age_cutoff = 45
 maximum_prostitute = {
-	value = 5
+	value = 2
 	if = {
 		limit = { primary_title.tier = tier_county is_landed = yes }
 		add = 3
@@ -11,11 +11,11 @@ maximum_prostitute = {
 	}
 	if = {
 		limit = { primary_title.tier = tier_kingdom is_landed = yes }
-		add = 5
+		add = 3
 	}
 	if = {
 		limit = { primary_title.tier = tier_empire is_landed = yes }
-		add = 10
+		add = 2
 	}
 }
 

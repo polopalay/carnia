@@ -67,10 +67,6 @@
 				limit = { has_character_flag =  peasant_faction_random_peasant }
 				add_character_flag = peasant_revolt_do_not_kill
 			}
-			if = {
-				limit = { is_imprisoned_by = scope:new_owner }
-				release_from_prison = yes
-			}
 
 			every_spouse = {
 				limit = { NOT = { this = scope:new_owner } faith = { NOT = { has_doctrine_parameter = same_slavery_accepted } faith_hostility_level = { target = scope:slave.faith value < faith_hostile_level } } }
