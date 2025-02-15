@@ -37,41 +37,9 @@ on_join_court = {
 }
 
 on_yearly_playable = {
-	trigger = {
-		is_ruler = yes
-		any_relation = {
-			type = slave
-			NOT = { is_courtier_of = root }
-		}
-	}
-	effect = {
-		every_relation = {
-			type = slave
-			limit = { NOT = { is_courtier_of = root } }
-			root = {
-				add_courtier = prev
-			}
-		}
+	events = {
+		carn_slave.0004
+		carn_slave.0005
 	}
 }
 
-five_year_everyone_pulse = {
-	trigger = {
-		is_ruler = no
-		has_trait = slave
-		any_relation = {
-			is_ruler = no
-			type = slave_owner
-			count = 0
-		}
-	}
-	effect = {
-		random_ruler = {
-			carn_enslave_effect = { SLAVE = root OWNER = this DRAMA = no }
-			weight = {
-				base = 1
-				modifier = { root.liege = this add = 10000 }
-			}
-		}
-	}
-}

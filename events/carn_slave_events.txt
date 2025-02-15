@@ -69,3 +69,49 @@ carn_slave.0003 = {
 		}
 	}
 }
+
+carn_slave.0004 = {
+	hidden = yes
+
+	trigger = {
+		is_ruler = yes
+		any_relation = {
+			type = slave
+			NOT = { is_courtier_of = root }
+		}
+	}
+
+	immediate = {
+		every_relation = {
+			type = slave
+			limit = { NOT = { is_courtier_of = root } }
+			root = {
+				add_courtier = prev
+			}
+		}
+	}
+}
+
+carn_slave.0005 = {
+	hidden = yes
+
+	trigger = {
+		is_ruler = no
+		has_trait = slave
+		any_relation = {
+			is_ruler = no
+			type = slave_owner
+			count = 0
+		}
+	}
+
+	immediate = {
+		random_ruler = {
+			carn_enslave_effect = { SLAVE = root OWNER = this DRAMA = no }
+			weight = {
+				base = 1
+				modifier = { root.liege = this add = 10000 }
+			}
+		}
+	}
+}
